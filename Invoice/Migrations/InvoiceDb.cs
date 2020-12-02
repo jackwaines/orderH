@@ -28,8 +28,11 @@ namespace Invoice.Migrations
             {
                 x.Property(c => c.id).IsRequired();
                 x.Property(c => c.customerID).IsRequired();
-                x.Property(c => c.invoiceDetail).IsRequired();
+                x.Property(c => c.FromName).IsRequired();
+                x.Property(c => c.FromEmail).IsRequired();
+                x.Property(c => c.Message).IsRequired();
                 x.Property(c => c.date).IsRequired();
+                x.Property(c => c.Dispatched).IsRequired();
             });
         }
     }

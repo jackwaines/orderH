@@ -22,15 +22,19 @@ namespace Invoice.Controllers
 
         // GET: api/Invoice
         [HttpGet("api/Invoice")]
-            public async Task<IActionResult> GetInoice()
+            public async Task<IActionResult> GetInoice([FromQuery] DateTime? date = null )
             {
                 var invoices = await _context.Invoice
+                                            .Where(b => !date.HasValue || b.date == null)
                                            .Select(b => new InvoiceDto
                                            {
                                                id = b.id,
                                                customerID = b.customerID,
-                                               invoiceDetail = b.invoiceDetail,
-                                               date= b.date
+                                               FromName = b.FromName,
+                                               FromEmail = b.FromEmail,
+                                               Message = b.Message,
+                                               date= b.date,
+                                               Dispatched = b.Dispatched
                                            })
                                            .ToListAsync();
                 return Ok(invoices);

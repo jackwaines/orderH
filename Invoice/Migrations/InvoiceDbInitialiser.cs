@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace Producks.Data
+namespace Invoice.Migrations
 {
     public static class InvoiceDbInitialiser
     {
@@ -20,8 +20,8 @@ namespace Producks.Data
 
             var invoices = new List<Invoice>
             {
-                new Invoice { customerID = 0, invoiceDetail="shoes Num:6 Miss Buyer address", date = 19/11/2020 },
-                 new Invoice { customerID = 1, invoiceDetail="hat Num:6 Mr Buyer address", date = 18/11/2020 }
+                new Invoice { customerID = "0", FromName="Mr",FromEmail = "Mr@aol.com", Message="buy", date = new DateTime(2020,5,25), Dispatched = true },
+                new Invoice { customerID = "2", FromName="Jeff",FromEmail = "Jeff@aol.com", Message="buy more", date =  new DateTime(2020,9,25) , Dispatched = true }
 
             };
             invoices.ForEach(c => context.Invoice.Add(c));
