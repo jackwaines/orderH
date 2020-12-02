@@ -20,6 +20,7 @@ namespace Invoice.Migrations
         public DateTime date { get; set; }
         public Boolean Dispatched { get; set; }
     }
+
 }
 
 
